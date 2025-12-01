@@ -194,11 +194,13 @@ function render() {
         return;
     }
     if (isOrtho) {
-        status.gauge -= 0.5;
+        status.gauge -= 1;
         if (status.gauge == 0) {
             isGameOver = true;
             gameOverReason = "투영 게이지가 0이 되었습니다.";
         }
+    } else {
+        status.gauge += 1;
     }
     if (Math.abs(sphere.position.x - goal.position.x) < 0.1 &&
         Math.abs(sphere.position.y - goal.position.y) < 0.5 &&
@@ -229,4 +231,5 @@ function resetGame() {
 
     camera.position.set(4, 2, 5);
     camera.lookAt(4, 0, 0);
+
 }
