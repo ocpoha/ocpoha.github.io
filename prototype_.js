@@ -200,7 +200,7 @@ function render() {
             gameOverReason = "투영 게이지가 0이 되었습니다.";
         }
     } else {
-        status.gauge += 1;
+        if (status.gauge < 100) status.gauge += 1;
     }
     if (Math.abs(sphere.position.x - goal.position.x) < 0.1 &&
         Math.abs(sphere.position.y - goal.position.y) < 0.5 &&
@@ -233,3 +233,4 @@ function resetGame() {
     camera.lookAt(4, 0, 0);
 
 }
+
